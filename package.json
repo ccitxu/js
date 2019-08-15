@@ -1,0 +1,25 @@
+{
+  "name": "studynotes",
+  "version": "1.0.0",
+  "description": "``` 1、原生模拟 vue 数据双向绑定 ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccitxu/studyNotes.git"
+  },
+  "keywords": [
+    "study"
+  ],
+  "author": "ccitxu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccitxu/studyNotes/issues"
+  },
+  "homepage": "https://github.com/ccitxu/studyNotes#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
