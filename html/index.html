@@ -7,6 +7,15 @@
         <img src="" id='img' width="100" height="100"/>
 
         <script>
+            window.onload=function(){
+                new ajax({
+                    url:'/asda',
+                    methods:'post',
+                    data:'asd',
+                    success:function(){},
+                    error:function(){},
+                })
+            },
             /**
             * 图片上传
             */
@@ -22,6 +31,22 @@
                     console.log(imgFile);
                     img.src=imgFile;
                 }
+            }
+            // 封装http
+            function ajax(options){
+                var xhr=null;
+                if(window.XMLHttpRequest()){
+                    xhr = new XMLHttpRequest();
+                }else{
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                xhr.open(options.methods,options.url,options.async);
+                if(options.method == 'post'){
+               xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+               xhr.send(options.data);
+                }else{
+                   xhr.send(null);
+                 }
             }
         </script>
     </body>

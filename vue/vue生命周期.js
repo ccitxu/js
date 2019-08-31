@@ -1,8 +1,8 @@
 beforeCreated //实例创建前，这个阶段实例的data、methods是读不到的
 created//实例创建后，这个阶段已经完成了数据观测（data Observer），属性和方法的运算，watch事件的回调，el属性目前不可见，数据并没有在dom元素上进行渲染
 beforeMounted//在挂载开始之前被调用 相关的render函数首次被调用
-mounted //el选项的DOM节点被新创建的vm.$el替换并挂载到实例上去之后调用此生命周期函数，此时实例的数据在DOM节点上进行渲染
+mounted //el选项的DOM节点被新创建的 vm.$el替换并挂载到实例上去之后调用此生命周期函数，此时实例的数据在DOM节点上进行渲染
 beforedUpdate//数据更新时调用，但是不进行DOM重新渲染，将数据更新时DOM没有渲染前可以在这个生命周期函数里面进行数据处理
 update//这个状态下dom重新渲染，当这个生命周期函数被调用时，组件dom已经更新，此时可以进行依赖dom的操作，当实例每次进行数据更新实update都操作
 beforeDestroyed//实例销毁之前调用
-detroyed//vue实例销毁后调用调用后vue实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+detroyed//vue实例销毁后vue实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
