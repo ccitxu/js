@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        // 冒泡算法
+        function bubblesort(arr) {
+            let len = arr.length;
+            for (let i = 0; i < len; i++) {
+                for (let j = 0; j < len - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j + 1];
+                        arr[j + 1] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr
+        }
+        //选择算法
+        function selectionSort(arr) {
+            let len = arr.length;
+            let minindex, temp;
+            for (let i = 0; i < len - 1; i++) {
+                minindex = i;
+                for (let j = i + 1; j < len; j++) {
+                    if (arr[j] < arr[minindex]) {
+                        minindex = j;
+                    }
+                }
+                temp = arr[i];
+                arr[i] = arr[minindex];
+                arr[minindex] = temp;
+            }
+            return arr;
+
+        }
+        //插入排序
+        function insertionSort(arr) {
+            let len = arr.length;
+            let preindex, current;
+            for (let i = 1; i < len; i++) {
+                preindex = i - 1;
+                current = arr[i];
+                while (preindex > 0 && arr[preindex] > current) {
+                    arr[preindex + 1] = arr[preIndex];
+                    preindex--;
+                }
+                arr[preindex + 1] = current;
+            }
+            return arr;
+
+        }
+    </script>
+</body>
+
+</html>

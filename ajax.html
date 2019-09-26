@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        ajax({
+            method: 'post',
+            url: 'http://192.168.0.214:50002/goods-center/goods/address/listAllProvince',
+            data: {
+                access_token: 123
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        });
+
+        function ajax(opt) {
+            opt = opt || {};
+            opt.method = opt.method.toUpperCase() || 'POST';
+            opt.url = opt.url || '';
+            opt.async = opt.async || true;
+            opt.data = opt.data || null;
+            opt.success = opt.success || function() {};
+            var xmlHttp = null;
+            if (XMLHttpRequest) {
+                xmlHttp = new XMLHttpRequest();
+            } else {
+                xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            var params = [];
+            for (var key in opt.data) {
+                params.push(key + ':' + opt.data[key]);
+            }
+            var postData = params.join('&');
+            if (opt.method.toUpperCase() === 'POST') {
+                xmlHttp.open(opt.method, opt.url, opt.async);
+                xmlHttp.setRequestHeader('Content-Type', 'application/json,text/plain, */*;charset=UTF-8');
+                xmlHttp.setRequestHeader('Cache-Control', 'no-cache');
+                xmlHttp.setRequestHeader('Referer', '');
+                xmlHttp.send(postData);
+            } else if (opt.method.toUpperCase() === 'GET') {
+                xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
+                xmlHttp.send(null);
+            }
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    opt.success(xmlHttp.responseText);
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>
